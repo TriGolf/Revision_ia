@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Commencer une révision</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Commencer une révision boostée avec l'ia 🦾</h1>
+        <p>Pour commencer, écrivez dans le texte ci-dessous votre cours (vous pourrez bientôt le prendre en photo)</p>
+
+        <form method="post" enctype="multipart/form-data">
+            <label for="cours">Écrit ton cours les notions importantes, ou ce que tu veux réviser ici :</label>
+            <input name="cours" id="cours" type="text" width="100" height="100">
+
+            <label for="photo_cours" class ="custom-file-upload">Importer une photo</label>
+            <input type="file" id="photo_cours" name="photo_cours" accept="image/*">
+            <span id="file-name">Aucun fichier sélectionné</span>
+
+            <br>
+            <button type="submit">Commencer ma révision</button>
+        </form>
+        <a href="/logout">Se déconnecter</a>
+        <script>
+            const fileInput = document.getElementById("photo_cours");
+            const fileName = document.getElementById('file-name');
+
+            fileInput.addEventListener('change', function(){if (fileInput.files.length > 0 ) {fileName.textContent = fileInput.files[0].name;} else {fileName.textContent = 'Aucun fichier sélectionné';}});
+        </script>
+    </body>
+</html>
